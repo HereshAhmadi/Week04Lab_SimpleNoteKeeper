@@ -15,9 +15,9 @@
         <h1>Edit Note</h1>
         <h2>View Note</h2>
         <form method="post" action="NoteServlet">
-        <b>Title: <input type="text" name="title" value="${note.title}" /> <br>
-            <b>Contents: <input type="textarea" name="content" value="${note.content}" /> <br>
-        <a href="NoteServlet" name="save">Save</button>
+        <b>Title: <input type="text" name="titleField" value="${note.title}" /> <br>
+            <b>Contents: <input type="textarea" name="contentField" value="${note.content}" /> <br>
+                <a href="NoteServlet"><button>Save</button</a>
         </form>
            
     </body>

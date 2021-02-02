@@ -9,7 +9,7 @@ package models;
  *
  * @author 699785
  */
-public class Note {
+public class Note{
     private String title;
     private String content;
     

@@ -30,6 +30,8 @@ public class NoteServlet extends HttpServlet {
             String title = bReader.readLine();
             String content = bReader.readLine();
 
+            bReader.close();
+
             Note note = new Note(title, content);
 
             getServletContext().setAttribute("note", note);
@@ -41,11 +43,15 @@ public class NoteServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String path = getServletContext().getRealPath("/WEB-INF/note.txt");
-        PrintWriter pWriter = new PrintWriter(new BufferedWriter(new FileWriter(path,false)));
+        PrintWriter pWriter = new PrintWriter(new BufferedWriter(new FileWriter(path, false)));
 
-        String title = request.getParameter("title");
-        String content = request.getParameter("content");
+        String title = request.getParameter("titleField");
+        String content = request.getParameter("contentField");
 
+        pWriter.write(title + "\n");
+        pWriter.write(content +"\n");
+
+        pWriter.close();
         Note note = new Note(title, content);
 
         getServletContext().setAttribute("note", note);
